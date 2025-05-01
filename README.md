@@ -1,4 +1,4 @@
-# 🧥 TailorCheck - Sistem Rekomendasi Ukuran Pakaian
+# 🧥 SizeCheckApp - Sistem Rekomendasi Ukuran Pakaian
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Lisensi MIT](https://img.shields.io/badge/Lisensi-MIT-green.svg)](LICENSE)
