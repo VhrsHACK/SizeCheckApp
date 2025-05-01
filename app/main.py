@@ -9,7 +9,6 @@ from app.pengolah_data import PengolahData
 from app.gui.gaya import WARNA, FON, GAYA
 from app.gui.komponen import PemuatanGambar, KolomInput, TombolHover
 
-
 class AplikasiUkuranPakaian:
     def __init__(self, root):
         self.root = root
@@ -17,7 +16,6 @@ class AplikasiUkuranPakaian:
         self.root.geometry("650x750")
         self.root.resizable(False, False)
 
-        # Muat dataset dan saran
         try:
             base_dir = os.path.dirname(os.path.abspath(__file__))
             dataset_path = os.path.join(base_dir, '..', 'dataset', 'ukuran_pakaian.csv')
@@ -56,11 +54,9 @@ class AplikasiUkuranPakaian:
         frame_utama = ttk.Frame(self.root, padding=20)
         frame_utama.pack(fill=tk.BOTH, expand=True)
 
-        # Header
         frame_header = ttk.Frame(frame_utama)
         frame_header.pack(fill=tk.X, pady=(0, 20))
 
-        # Logo
         base_dir = os.path.dirname(os.path.abspath(__file__))
         logo_path = os.path.join(base_dir, '..', 'app', 'assets', 'logo.jpg')
         logo = PemuatanGambar.muat_gambar(os.path.abspath(logo_path), (100, 100))
@@ -68,7 +64,6 @@ class AplikasiUkuranPakaian:
             ttk.Label(frame_header, image=logo).pack(side=tk.LEFT)
             self.logo_image = logo
 
-        # Judul
         ttk.Label(
             frame_header,
             text="Ukurlah\nSistem Rekomendasi Ukuran Pakaian",
@@ -77,7 +72,6 @@ class AplikasiUkuranPakaian:
             justify=tk.LEFT
         ).pack(side=tk.LEFT, padx=15)
 
-        # Input Fields
         self.kolom_input = {}
         daftar_ukuran = [
             ("Lingkar Dada (cm)", "lingkar_dada"),
@@ -102,7 +96,6 @@ class AplikasiUkuranPakaian:
             entry.pack(side=tk.RIGHT, expand=True)
             self.kolom_input[kunci] = entry
 
-        # Hasil dan Tombol
         frame_hasil = ttk.Frame(frame_utama)
         frame_hasil.pack(fill=tk.X, pady=15)
 
@@ -137,7 +130,6 @@ class AplikasiUkuranPakaian:
                 for kunci, entry in self.kolom_input.items()
             }
 
-            # Validasi input
             validasi = self.pengolah_data.validasi_input(data_input)
             if not validasi['valid']:
                 messagebox.showwarning(
@@ -146,16 +138,13 @@ class AplikasiUkuranPakaian:
                 )
                 return
 
-            # Dapatkan rekomendasi
             ukuran = self.mesin.cari_ukuran(data_input)
             
-            # Simpan data baru
             if self.pengolah_data.simpan_data(data_input, ukuran):
                 print("Data baru berhasil disimpan")
             else:
                 print("Data sudah ada, tidak disimpan")
 
-            # Tampilkan hasil
             self._perbarui_hasil(ukuran)
 
         except ValueError:
@@ -188,7 +177,6 @@ class AplikasiUkuranPakaian:
             parts.append(f"\n\n🛍 Produk Rekomendasi: {', '.join(saran['produk_rekomendasi'])}")
             
         return ''.join(parts)
-
 
 if __name__ == "__main__":
     root = tk.Tk()

@@ -37,7 +37,6 @@ class PengolahData:
             min_val, max_val = rentang[kunci]
             if not (min_val <= nilai <= max_val):
                 error[kunci] = f"Nilai {kunci} harus antara {min_val}-{max_val} cm"
-                # Greedy: Pilih nilai terdekat dalam rentang
                 perbaikan[kunci] = max(min_val, min(nilai, max_val))
             else:
                 perbaikan[kunci] = nilai
@@ -46,7 +45,7 @@ class PengolahData:
 
     def simpan_data(self, data_baru: Dict[str, float], ukuran: str) -> bool:
         """Simpan data baru ke CSV jika belum ada"""
-        toleransi = 1.0  # Toleransi untuk duplikasi (dalam cm)
+        toleransi = 1.0
         new_row = {
             'lingkar_dada': data_baru['lingkar_dada'],
             'lebar_pundak': data_baru['lebar_pundak'],
@@ -55,7 +54,6 @@ class PengolahData:
             'ukuran': ukuran
         }
         
-        # Greedy: Cek duplikasi dengan toleransi
         def hampir_sama(row):
             return all(
                 abs(row[kolom] - new_row[kolom]) <= toleransi

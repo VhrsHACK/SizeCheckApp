@@ -23,7 +23,6 @@ class MesinRekomendasi:
         }
 
     def cari_ukuran(self, data_input: Dict[str, float]) -> str:
-    # Greedy: Cari ukuran dengan jarak minimum
         def hitung_jarak(row):
             return sum(abs(row[kolom] - data_input[kolom]) for kolom in ['lingkar_dada', 'lebar_pundak', 'lingkar_perut', 'panjang_body'])
     
