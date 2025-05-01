@@ -1,0 +1,17 @@
+.Python
+env/
+venv/
+build/
+dist/
+sdist/
+*.egg-info
+.installed.cfg
+*.whl
+MANIFEST.in
+*.manifest
+
+# PyInstaller
+build
+dist
+*.spec
+_pycache_
