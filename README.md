@@ -4,13 +4,9 @@
 [![Lisensi MIT](https://img.shields.io/badge/Lisensi-MIT-green.svg)](LICENSE)
 [![Status Proyek](https://img.shields.io/badge/Status-Produksi%20Siap-brightgreen)]()
 
-Sistem cerdas untuk merekomendasikan ukuran pakaian berdasarkan parameter tubuh pengguna dengan algoritma *nearest neighbor*.
-
-![Demo Antarmuka](demo.png)
-
 ## ✨ Fitur Unggulan
 
-- 🎯 Akurasi tinggi dengan algoritma KNN termodifikasi
+- 🎯 Akurasi tinggi dengan algoritma Greedy
 - 📈 Optimal untuk dataset besar (1000+ item)
 - 🖥️ Antarmuka pengguna modern dan responsif
 - 📱 Kompatibel dengan berbagai sistem operasi
