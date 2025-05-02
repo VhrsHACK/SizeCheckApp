@@ -12,8 +12,8 @@ from app.gui.komponen import PemuatanGambar, KolomInput, TombolHover
 class AplikasiUkuranPakaian:
     def __init__(self, root):
         self.root = root
-        self.root.title("Ukurlah - Sistem Rekomendasi Ukuran Pakaian")
-        self.root.geometry("650x750")
+        self.root.title("SizeChecker - Sistem Rekomendasi Ukuran Pakaian")
+        self.root.geometry("650x640")
         self.root.resizable(False, False)
 
         try:
@@ -66,7 +66,7 @@ class AplikasiUkuranPakaian:
 
         ttk.Label(
             frame_header,
-            text="Ukurlah\nSistem Rekomendasi Ukuran Pakaian",
+            text="SizeChecker\nSistem Rekomendasi Ukuran Pakaian",
             font=FON["judul"],
             foreground=WARNA["primer"],
             justify=tk.LEFT
